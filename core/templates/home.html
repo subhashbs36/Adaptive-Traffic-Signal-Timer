@@ -1,0 +1,80 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Dashboard {% endblock %} 
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+<div class="main-content-container container-fluid px-4">
+    <!-- Page Header -->
+    <div class="page-header row no-gutters py-4">
+      <div class="col-12 col-sm-4 text-center text-sm-left mb-0">
+        <span class="text-uppercase page-subtitle">Home</span>
+        <h3 class="page-title">Traffic</h3>
+      </div>
+    </div>
+    <!-- End Page Header -->
+    <!-- Small Stats Blocks -->
+   
+
+    
+    <!-- End Small Stats Blocks -->
+    <div class="row">
+      <!-- Users Stats -->
+        <div class="card card-small">
+          <div class="card-body pt-0">
+
+            <div class="product-section" id="product-section">
+                <div class="product-info">
+                    <h1><br>Revolutionize Traffic Management with AI</h1>
+                    <p>Welcome to our site, where cutting-edge computer vision technology meets urban mobility. Our advanced AI-powered traffic management solutions are designed to create safer, more efficient, and eco-friendly cities.</p>
+                </div>
+                <div class="mb-3 mx-auto">
+                    <img src="static/assets/img/1.jpg" alt="Smart Traffic Image" width="100%"> 
+                </div>
+                <p>Uncover valuable insights into traffic dynamics and empower smarter decision-making with our advanced analytics platform. Our state-of-the-art AI algorithms detect subtle traffic anomalies, identify emerging patterns, and generate data-driven recommendations. Traffic engineers and city planners can leverage this information to fine-tune signal timings, optimize traffic management strategies, and proactively address congestion challenges. By harnessing the potential of AI-driven analytics, we enable you to create efficient, adaptive, and forward-looking urban traffic systems that keep people and cities moving.</p>
+
+            </div>
+            
+          </div>
+        </div>
+        <br>
+      <div class="card card-small">
+        <div class="card-body pt-0">
+            <div class="product-section" id="product-section">
+                <div class="product-info">
+                    <h2><br>Our Smart Traffic Management Solutions</h2>
+                    <p>Discover a new era of traffic management through our state-of-the-art AI-driven solutions. From real-time traffic analysis to predictive congestion management, we offer:</p>
+                    <ul>
+                        <li>Intelligent Traffic Flow Optimization</li>
+                        <li>Pedestrian and Vehicle Detection</li>
+                        <li>Automated Traffic Signal Control</li>
+                        <li>Anomaly Detection and Alerts</li>
+                    </ul>
+                </div>
+            </div>
+            
+          <div class="mb-3 mx-auto">
+              <img src="static/assets/img/SmartTraffic.jpeg" alt="Smart Traffic Image" width="100%"> 
+          </div>
+          Experience the future of urban mobility with our cutting-edge computer vision technology. Our smart traffic management solutions utilize AI to optimize traffic flow, reduce congestion, and enhance safety for pedestrians and drivers alike. Our sophisticated algorithms analyze real-time traffic data, enabling us to dynamically adjust traffic signals, manage lane assignments, and predict traffic patterns. Join us in revolutionizing transportation, making cities more efficient, and creating seamless journeys for everyone on the road.</p>
+
+        </div>
+      </div>
+    </div>
+</div>
+      <!-- End Users Stats -->
+   
+
+
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}
+
+  <script src="/static/assets/js/app/app-blog-overview.1.1.0.js"></script>
+
+{% endblock javascripts %}

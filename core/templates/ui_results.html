@@ -1,0 +1,385 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} UI Components {% endblock %} 
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+  <style>
+
+    header {
+      background-color: rgb(255, 255, 255);
+      top: 0%;
+      position: sticky;
+      border-radius: 10px;
+      width: 100%;
+    }
+    
+    header h2 {
+      text-align: center;
+      margin: 0;
+      padding-left: 5%;
+      padding-top: 1%;
+      padding-bottom: 1%;
+    }
+
+    .header-buttons {
+      position: absolute;
+      right: 5%;
+      bottom: 15%;
+
+    }
+    
+    .btn {
+      margin-left: 10px;
+      padding: 8px 16px;
+      background-color: rgb(255, 255, 255);
+      color: rgb(0, 0, 0);
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-family: 'Courier New';
+      font-weight: 1000;
+      font-size: large;
+    }
+    
+    .btn:hover {
+      background-color: whitesmoke;
+      color: rgb(0, 0, 0);
+    }
+    
+
+
+    .traffic-lights-container {
+      display: flex;
+      justify-content: space-between;
+      width: 80%;
+      margin-top: 1%;
+      margin-left: 10%;
+      border-radius: 10px;
+      background-color: white;
+    }
+
+    .traffic-light {
+      width: 30%;
+      height: 30%;
+      background-color: #333;
+      position: relative;
+      margin-top: 10%;
+      margin-left: 35%;
+      border-radius: 10px;
+    }
+
+    .image_container {
+      max-width: 100%;
+      height: auto;
+      margin: 5%;
+    }
+    
+    .image_container img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10%;
+    }
+
+    .light {
+      width: 60%;
+      height: 20%;
+      border-radius: 50%;
+      position: absolute;
+      bottom: 20px;
+      left: 20%;
+      transition: background-color 0.5s;
+    }
+
+    .red {
+      background-color: #FF0000;
+      top: 15%;
+    }
+
+    .yellow {
+      background-color: #FFFF00;
+      top: 45%;
+    }
+
+    .green {
+      background-color: #00FF00;
+      top: 75%;
+    }
+
+    .timer {
+      position: absolute;
+      font-family: 'Courier New';
+      font-size:smaller;
+      top: 0;
+      left: 0;
+      width: 100%;
+      text-align: center;
+      color: #FFF;
+      padding: 10%;
+      background-color: #000000;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+    } 
+
+    .traffic_details {
+      
+      border-radius: 10px;
+      width: 100%;
+      padding-left: 5%;
+      padding-top: 5%;
+      padding-bottom: 150%;
+      margin-top: 2%;
+    }
+
+    .traffic_details h3{
+      font-size: 20px;
+    }
+    
+    .camera_label {
+      text-align: center;
+    }
+
+    .camera_label h3{
+      font-size: 20px;
+    }
+    
+  </style>
+
+<div>
+  <header>
+    <h2>Advance Traffic Management System</h2>
+  </header>
+
+  <div class="traffic-lights-container">
+    <div>
+      <div class="image_container">
+        <img src="{{ session_data.0.0 }}" alt="Hii Subhash">
+      </div>
+      <div class="camera_label">
+        <h3>Camera 1</h3>
+      </div>
+    <div class="traffic-light">
+      <div class="timer"></div>
+      <div class="light red"></div>
+      <div class="light yellow"></div>
+      <div class="light green"></div>
+    </div>
+    <div class="traffic_details">
+      <h3>Traffic Lane: {{ session_data.0.lane }}</h3>
+      <h3>Vehicle Count: {{ session_data.0.vehicle_count }}</h3>
+      {% if session_data.0.vehicle_count > 25 %}
+        <h3>Density: High</h3>
+      {% elif session_data.0.vehicle_count > 15 %}
+        <h3>Density: Medium</h3>
+      {% else %}
+        <h3>Density: Low</h3>
+      {% endif %}
+      <h3>Time Allotted: {{ session_data.0.green_duration }}</h3>
+      <br>
+      <h3>Red: {{ session_data.0.red_duration}}</h3>
+      <h3>Yellow: 3</h3>
+      <h3>Green: {{ session_data.0.green_duration }}</h3>
+    </div>
+  </div>
+
+  <div>
+    <div class="image_container">
+      <img src="{{ session_data.1.1 }}" alt="Hii Subhash">
+    </div>
+    <div class="camera_label">
+      <h3>Camera 2</h3>
+    </div>
+  <div class="traffic-light">
+    <div class="timer"></div>
+    <div class="light red"></div>
+    <div class="light yellow"></div>
+    <div class="light green"></div>
+  </div>
+  <div class="traffic_details">
+    <h3>Traffic Lane: {{ session_data.1.lane }}</h3>
+    <h3>Vehicle Count: {{ session_data.1.vehicle_count }}</h3>
+    {% if session_data.1.vehicle_count > 25 %}
+      <h3>Density: High</h3>
+    {% elif session_data.1.vehicle_count > 15 %}
+      <h3>Density: Medium</h3>
+    {% else %}
+      <h3>Density: Low</h3>
+    {% endif %}
+    <h3>Time Allotted: {{ session_data.1.green_duration }}</h3>
+    <br>
+    <h3>Red: {{ session_data.1.red_duration }}</h3>
+    <h3>Yellow: 3</h3>
+    <h3>Green: {{ session_data.1.green_duration }}</h3>
+  </div>
+</div>
+
+<div>
+  <div class="image_container">
+    <img src="{{ session_data.2.2 }}" alt="Hii Subhash">
+  </div>
+  <div class="camera_label">
+    <h3>Camera 3</h3>
+  </div>
+<div class="traffic-light">
+  <div class="timer"></div>
+  <div class="light red"></div>
+  <div class="light yellow"></div>
+  <div class="light green"></div>
+</div>
+<div class="traffic_details">
+  <h3>Traffic Lane: {{ session_data.2.lane }}</h3>
+  <h3>Vehicle Count: {{ session_data.2.vehicle_count }}</h3>
+  {% if session_data.2.vehicle_count > 25 %}
+    <h3>Density: High</h3>
+  {% elif session_data.2.vehicle_count > 15 %}
+    <h3>Density: Medium</h3>
+  {% else %}
+    <h3>Density: Low</h3>
+  {% endif %}
+  <h3>Time Allotted: {{ session_data.2.green_duration }}</h3>
+  <br>
+  <h3>Red: {{ session_data.2.red_duration }}</h3>
+  <h3>Yellow: 3</h3>
+  <h3>Green: {{ session_data.2.green_duration }}</h3>
+</div>
+</div>
+
+<div>
+  <div class="image_container">
+    <img src="{{ session_data.3.3 }}" alt="Hii Subhash">
+  </div>
+  <div class="camera_label">
+    <h3>Camera 4</h3>
+  </div>
+<div class="traffic-light">
+  <div class="timer"></div>
+  <div class="light red"></div>
+  <div class="light yellow"></div>
+  <div class="light green"></div>
+</div>
+<div class="traffic_details">
+  <h3>Traffic Lane: {{ session_data.3.lane }}</h3>
+  <h3>Vehicle Count: {{ session_data.3.vehicle_count }}</h3>
+  {% if session_data.3.vehicle_count > 25 %}
+    <h3>Density: High</h3>
+  {% elif session_data.3.vehicle_count > 15 %}
+    <h3>Density: Medium</h3>
+  {% else %}
+    <h3>Density: Low</h3>
+  {% endif %}
+  <h3>Time Allotted: {{ session_data.3.green_duration }}</h3>
+  <br>
+  <h3>Red: {{ session_data.3.red_duration }}</h3>
+  <h3>Yellow: 3</h3>
+  <h3>Green: {{ session_data.3.green_duration }}</h3>
+</div>
+</div>
+</div>
+</div>
+  
+  
+<script>
+  const trafficLights = document.querySelectorAll('.traffic-light');
+  const trafficData = [
+    { redDuration: {{ session_data.0.red_duration }}, yellowDuration: 3, greenDuration: {{ session_data.0.green_duration }} },
+    { redDuration: {{ session_data.1.red_duration }}, yellowDuration: 3, greenDuration: {{ session_data.1.green_duration }} },
+    { redDuration: {{ session_data.2.red_duration }}, yellowDuration: 3, greenDuration: {{ session_data.2.green_duration }} },
+    { redDuration: {{ session_data.3.red_duration }}, yellowDuration: 3, greenDuration: {{ session_data.3.green_duration }} }
+  ];
+  let currentIndex = 0;
+  
+  function logout() {
+    window.location.href = "{% url 'logout' %}";
+  }
+  
+  function startTrafficLights() {
+    if (currentIndex >= trafficData.length) {
+      currentIndex = 0;
+    }
+
+    const currentLight = trafficLights[currentIndex];
+    const currentData = trafficData[currentIndex];
+
+    const redDuration = currentData.redDuration;
+    const yellowDuration = currentData.yellowDuration;
+    const greenDuration = currentData.greenDuration;
+
+    const lights = currentLight.querySelectorAll('.light');
+    const timer = currentLight.querySelector('.timer');
+
+    const turnAllRed = () => {
+      trafficLights.forEach((light) => {
+        const lightCircles = light.querySelectorAll('.light');
+        lightCircles.forEach((circle, index) => {
+          circle.style.backgroundColor = index === 0 ? '#FF0000' : '#000'; // Set red for the first circle, black for others
+        });
+      });
+    };
+
+    const countdown = (duration, color) => {
+      return new Promise((resolve) => {
+        let remainingTime = duration;
+
+        const interval = setInterval(() => {
+          timer.textContent = `${color}: ${remainingTime}s`;
+          remainingTime--;
+
+          if (remainingTime < 0) {
+            clearInterval(interval);
+            resolve();
+          }
+        }, 1000);
+      });
+    };
+
+    const startLightSequence = async () => {
+      turnAllRed();
+
+      await countdown(redDuration, 'Red');
+
+      lights[0].style.backgroundColor = '#000'; // Turn off red
+      lights[1].style.backgroundColor = '#FFFF00'; // Display yellow
+      await countdown(yellowDuration, 'Yellow');
+
+      lights[1].style.backgroundColor = '#000'; // Turn off yellow
+      lights[2].style.backgroundColor = '#00FF00'; // Display green
+
+      const nextLightIndex = (currentIndex + 1) % trafficLights.length;
+      const nextLight = trafficLights[nextLightIndex];
+      const nextData = trafficData[nextLightIndex];
+      const nextRedDuration = nextData.redDuration;
+      const nextLights = nextLight.querySelectorAll('.light');
+      const nextTimer = nextLight.querySelector('.timer');
+
+      nextLights[0].style.backgroundColor = '#FF0000'; // Display red for the next light
+      nextTimer.textContent = `Red: ${nextRedDuration}s`;
+
+      const simultaneousInterval = setInterval(() => {
+        lights[2].style.backgroundColor = '#000'; // Turn off green
+        lights[0].style.backgroundColor = '#FF0000'; // Display red
+
+        clearInterval(simultaneousInterval);
+      }, greenDuration * 1000);
+
+      await countdown(greenDuration, 'Green');
+
+      lights[2].style.backgroundColor = '#000'; // Turn off green
+      lights[0].style.backgroundColor = '#FF0000'; // Display red
+
+      currentIndex++;
+      startTrafficLights(); // Move to the next traffic light
+    };
+
+    startLightSequence();
+  }
+
+  startTrafficLights();
+</script>
+
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}

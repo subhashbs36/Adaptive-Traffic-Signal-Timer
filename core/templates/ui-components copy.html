@@ -1,0 +1,59 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} UI Components {% endblock %} 
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+
+      <div class="main-content-container container-fluid px-4">
+        <!-- Page Header -->
+        <div class="page-header row no-gutters py-4 mb-3 border-bottom">
+          <div class="col-12 col-sm-4 text-center text-sm-left mb-0">
+            <span class="text-uppercase page-subtitle">Overview</span>
+            <h3 class="page-title">Traffic Prediction</h3>
+          </div>
+        </div>
+        <!-- End Page Header -->
+
+        <div class="row">
+          <div class="col-lg-8 mb-4">
+            <div class="card card-small mb-4">
+              <div class="card-header border-bottom">
+                <h6 class="m-0">Form Inputs</h6>
+              </div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item p-0 px-3 pt-3">
+                  <div class="row">
+                    <div class="col-sm-12 col-md-4 mb-3">
+                      <!-- Checkboxes -->
+                      <strong class="text-muted d-block mb-2">Select 4 Images</strong>
+                      <fieldset>
+                        <form method="POST" enctype="multipart/form-data" action="{% url 'process_images/' %}">
+                          {% csrf_token %}
+                          <input type="file" name="images" accept="image/*" multiple>
+                          <br>
+                          <br>
+                          <button type="submit" class="mb-2 btn btn-sm btn-primary mr-1">Process Images</button>
+                        </form>
+                      </fieldset>
+                      <!-- / Checkboxes -->
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-lg-4 mb-4">
+
+          
+          </div>
+        </div>
+    </div>
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}

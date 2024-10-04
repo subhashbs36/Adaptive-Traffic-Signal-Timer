@@ -1,0 +1,39 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			http-equiv="X-UA-Compatible"
+			content="IE=edge" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0" />
+		<title>Traffic Manager</title>
+        <link href="{% static 'upload.css' %}" rel="stylesheet" type="text/css">
+
+		<link
+			rel="shortcut icon"
+			href="https://cdn1.vectorstock.com/i/1000x1000/25/70/moving-car-glyph-icon-vector-28812570.jpg"
+			type="image/x-icon" />
+	</head>
+	<body>
+		<!-- <img src="{% static 'outputSaveFilename/output_9.jpg' %}" alt=""> -->
+		<br>
+		<br>
+		<br>
+		<br>
+            <form method="POST" enctype="multipart/form-data" action="{% url 'process_images' %}">
+                {% csrf_token %}
+                <input type="file" name="images" accept="image/*" multiple>
+                <button type="submit">Process Images</button>
+            </form>
+
+		<!-- <script src="app.js/app.js"></script> -->
+	</body>
+</html>
+
+
+
+

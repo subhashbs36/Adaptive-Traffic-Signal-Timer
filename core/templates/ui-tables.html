@@ -1,0 +1,74 @@
+{% extends "layouts/base.html" %}
+
+{% block title %}UI Tables{% endblock %} 
+
+{% block stylesheets %}
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.1/css/jquery.dataTables.min.css">
+{% endblock stylesheets %}
+
+{% block content %}
+
+<div class="main-content-container container-fluid px-4">
+  <!-- Page Header -->
+  <div class="page-header row no-gutters py-4">
+    <div class="col-12 col-sm-4 text-center text-sm-left mb-0">
+      <span class="text-uppercase page-subtitle">Overview</span>
+      <h3 class="page-title">Data Tables</h3>
+    </div>
+  </div>
+  <!-- End Page Header -->
+  <!-- Custom Table -->
+  <div class="row">
+    <div class="col">
+      <div class="card card-small mb-4">
+        <div class="card-header border-bottom">
+          <h6 class="m-0">Lane Data</h6>
+        </div>
+        <div class="card-body p-0 pb-3 text-center">
+          <table id="lane-data-table" class="table mb-0">
+            <thead class="bg-light">
+              <tr>
+                <th scope="col" class="border-0">#</th>
+                <th scope="col" class="border-0">Lane</th>
+                <th scope="col" class="border-0">DateTime</th>
+                <th scope="col" class="border-0">Vehicle Count</th>
+                <th scope="col" class="border-0">Car Count</th>
+                <th scope="col" class="border-0">Bike Count</th>
+                <th scope="col" class="border-0">Bus Count</th>
+                <th scope="col" class="border-0">Truck Count</th>
+                <th scope="col" class="border-0">Rikshaw Count</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for data in lane_data %}
+              <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ data.lane }}</td>
+                <td>{{ data.datetime }}</td>
+                <td>{{ data.vehicle_count }}</td>
+                <td>{{ data.car_count }}</td>
+                <td>{{ data.bike_count }}</td>
+                <td>{{ data.bus_count }}</td>
+                <td>{{ data.truck_count }}</td>
+                <td>{{ data.rickshaw_count }}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End Custom Table -->
+</div>
+
+{% endblock content %}
+
+{% block javascripts %}
+<script src="https://cdn.datatables.net/1.11.1/js/jquery.dataTables.min.js"></script>
+<script>
+$(document).ready(function() {
+  $('#lane-data-table').DataTable();
+});
+</script>
+{% endblock javascripts %}

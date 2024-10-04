@@ -1,0 +1,143 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} User Profile {% endblock %} 
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+    <div class="alert alert-success alert-dismissible fade show mb-0" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+        <i class="fa fa-check mx-2"></i>
+        <strong>Success!</strong> Your profile has been updated! </div>
+      <div class="main-content-container container-fluid px-4">
+        <!-- Page Header -->
+        <div class="page-header row no-gutters py-4">
+          <div class="col-12 col-sm-4 text-center text-sm-left mb-0">
+            <span class="text-uppercase page-subtitle">Overview</span>
+            <h3 class="page-title">User Profile</h3>
+          </div>
+        </div>
+        <!-- End Page Header -->
+        <!-- Default Light Table -->
+        <div class="row">
+          <div class="col-lg-4">
+            <div class="card card-small mb-4 pt-3">
+              <div class="card-header border-bottom text-center">
+                <div class="mb-3 mx-auto">
+                  <img class="rounded-circle" src="/static/assets/img/avatars/0.jpg" alt="User Avatar" width="110"> </div>
+                <h4 class="mb-0">
+                    {{ request.user.username }}
+                </h4>
+                <span class="text-muted d-block mb-2">
+                    {{ request.user.email }}
+                </span>
+                <button type="button" class="mb-2 btn btn-sm btn-pill btn-outline-primary mr-2">
+                  <i class="material-icons mr-1">person_add</i>Follow</button>
+              </div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item px-4">
+                  <div class="progress-wrapper">
+                    <strong class="text-muted d-block mb-2">Workload</strong>
+                    <div class="progress progress-sm">
+                      <div class="progress-bar bg-primary" role="progressbar" aria-valuenow="74" aria-valuemin="0" aria-valuemax="100" style="width: 74%;">
+                        <span class="progress-value">74%</span>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="list-group-item p-4">
+                  <strong class="text-muted d-block mb-2">Description</strong>
+                  <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio eaque, quidem, commodi soluta qui quae minima obcaecati quod dolorum sint alias, possimus illum assumenda eligendi cumque?</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-lg-8">
+            <div class="card card-small mb-4">
+              <div class="card-header border-bottom">
+                <h6 class="m-0">Account ID: {{ request.user.id }} </h6>
+              </div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item p-3">
+                  <div class="row">
+                    <div class="col">
+                      <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="feEmailAddress">Email</label>
+                            <input class="form-control" id="feEmailAddress" placeholder="Email" value="{{ request.user.email }}">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="fePassword">Username</label>
+                            <input class="form-control" id="fePassword" placeholder="Username" value="{{ request.user.username }}">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="feInputAddress">Address</label>
+                        <input type="text" class="form-control" id="feInputAddress" placeholder="Bangalore, Karnataka">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="feInputCity">City</label>
+                            <input type="text" class="form-control" id="feInputCity" placeholder="Bangalore">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="feInputState">State</label>
+                            <select id="feInputState" class="form-control">
+                                <option selected>Choose...</option>
+                                <option>Jammu & Kashmir</option>
+                                <option>Assam</option>
+                                <option>AndraPradesh</option>
+                                <!-- Add other states -->
+                            </select>
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label for="inputZip">Zip</label>
+                            <input type="text" class="form-control" id="inputZip">
+                        </div>
+                    </div>
+                    <button id="updateButton" class="btn btn-primary">Update</button>
+                    
+                    <script>
+                        const updateButton = document.getElementById('updateButton');
+                    
+                        updateButton.addEventListener('click', function() {
+                            const emailAddress = document.getElementById('feEmailAddress');
+                            const password = document.getElementById('fePassword');
+                            const inputAddress = document.getElementById('feInputAddress');
+                            const inputCity = document.getElementById('feInputCity');
+                            const inputState = document.getElementById('feInputState');
+                            const inputZip = document.getElementById('inputZip');
+                    
+                            emailAddress.placeholder = emailAddress.value;
+                            password.placeholder = password.value;
+                            inputAddress.placeholder = inputAddress.value;
+                            inputCity.placeholder = inputCity.value;
+                            
+                            const stateOption = inputState.querySelector(`option[value="${inputState.value}"]`);
+                            if (stateOption) {
+                                inputState.selectedIndex = stateOption.index;
+                            }
+                            
+                            inputZip.placeholder = inputZip.value;
+                        });
+                    </script>
+                    
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <!-- End Default Light Table -->
+    </div>
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}
