@@ -47,3 +47,8 @@ The project is divided into three main modules:
    
    ```bash
    python manage.py runserver
+
+
+## Note:
+Due to Size limit Yolo model has not been Uploaded so to run the program u need to download the yoloV2 model from the official repository and place it in the the bin folders of darkflow inside the traffic folder.
+Sorry on that :)
